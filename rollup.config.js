@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs'
+import copy from 'rollup-plugin-copy'
 import resolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
@@ -50,10 +51,10 @@ export default defineConfig([
     ],
   },
   {
-    input: './foreground/index.ts',
+    input: './popup/index.ts',
 
     output: {
-      file: './dist/foreground.js',
+      file: './dist/popup.js',
       format: 'esm',
       sourcemap: true,
     },
@@ -66,6 +67,13 @@ export default defineConfig([
       swc({
         sourceMaps: true,
         tsconfig: './tsconfig.json',
+      }),
+      copy({
+        targets: [
+          { src: './manifest.json', dest: './dist' },
+          { src: './assets/icons', dest: './dist/assets' },
+          { src: './popup/index.html', dest: './dist', rename: 'popup.html' },
+        ],
       }),
     ],
   },

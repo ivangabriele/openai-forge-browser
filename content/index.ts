@@ -4,16 +4,19 @@ import 'toastify-js/src/toastify.css'
 
 function showToast(message: string) {
   Toastify({
-    close: true,
-    duration: 3000,
+    duration: 5000,
     gravity: 'top',
     position: 'right',
     stopOnFocus: true,
+    style: {
+      background: 'linear-gradient(to right, #36d1dc, #5b86e5)',
+      boxShadow: 'none',
+    },
     text: message,
   }).showToast()
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(request => {
   console.debug('[OpenAI Forge]', request.type, request.value)
 
   if (request.type === 'DATA') {
