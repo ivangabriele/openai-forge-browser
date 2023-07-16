@@ -7331,7 +7331,6 @@ __metadata:
     rollup-plugin-swc3: 0.8.2
     semantic-release: 21.0.6
     sharp: 0.32.2
-    toastify-js: 1.12.0
     tslib: 2.6.0
     typescript: 5.1.6
     ws: 8.13.0
@@ -9746,13 +9745,6 @@ __metadata:
   dependencies:
     is-number: ^7.0.0
   checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
-  languageName: node
-  linkType: hard
-
-"toastify-js@npm:1.12.0":
-  version: 1.12.0
-  resolution: "toastify-js@npm:1.12.0"
-  checksum: effb5553f11aa86caa2aceee01c446daea9cb4894e9c57021cf2de483ddcb46f82615058a4871e02055ac9f01d5c0d7ec2a4a7b209388d078092b7c2f9a88090
   languageName: node
   linkType: hard
 

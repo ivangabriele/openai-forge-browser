@@ -60,7 +60,7 @@ async function restartWebSocketClient(tabId: number): Promise<void> {
 
 async function startWebSocketClient(tabId: number, isRetry: boolean = false): Promise<void> {
   try {
-    await sendState(tabId, isRetry ? State.RECONNECTING : State.DISCONNECTING)
+    await sendState(tabId, isRetry ? State.RECONNECTING : State.CONNECTING)
 
     const webSocket = new WebSocket(WEB_SOCKET_SERVER_URI)
     tabSocket[tabId] = webSocket
@@ -93,9 +93,13 @@ async function startWebSocketClient(tabId: number, isRetry: boolean = false): Pr
         await sendState(tabId, State.DISCONNECTED, event.code, event.reason)
       } else {
         await sendState(tabId, State.DISCONNECTED, event.code, event.reason)
-      }
 
-      await restartWebSocketClient(tabId)
+        // The WebSocket client was disconnected because the server went off
+        if (event.code === 1006) {
+          // Let's try to reconnect
+          await restartWebSocketClient(tabId)
+        }
+      }
     }
   } catch (err) {
     await sendError(tabId, 'An unexpected error happened', err)

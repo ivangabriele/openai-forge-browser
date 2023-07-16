@@ -1,34 +1,14 @@
-import Toastify from 'toastify-js'
-
-import 'toastify-js/src/toastify.css'
 import { STATE_LABEL } from '../common/constants'
 import { RequestType, type Request, Action } from '../common/types'
 
-// let LAST_TOAST: Toastify | undefined
-let LAST_TOAST: any
+function updatedBadge(message: string, isError: boolean = false) {
+  bodyElement.innerText = message
 
-function showToast(message: string, isError: boolean = false) {
-  if (LAST_TOAST) {
-    LAST_TOAST.hideToast()
+  if (isError && !bodyElement.classList.contains('with-error')) {
+    bodyElement.classList.add('with-error')
+  } else if (bodyElement.classList.contains('with-error')) {
+    bodyElement.classList.remove('with-error')
   }
-
-  const newToast = Toastify({
-    duration: 5000,
-    gravity: 'top',
-    position: 'right',
-    stopOnFocus: true,
-    style: {
-      background: isError ? '#fc3623' : '#e52b50',
-      borderRadius: '0',
-      boxShadow: 'none',
-      padding: '4px 12px 8px',
-    },
-    text: message,
-  })
-
-  newToast.showToast()
-
-  LAST_TOAST = newToast
 }
 
 chrome.runtime.onMessage.addListener((request: Request) => {
@@ -53,18 +33,27 @@ chrome.runtime.onMessage.addListener((request: Request) => {
   }
 
   if (request.type === RequestType.ERROR) {
-    showToast(`OpenAI Forge: ${request.value}`, true)
+    updatedBadge(request.value, true)
   }
 
   if (request.type === RequestType.STATE) {
-    showToast(`OpenAI Forge: ${STATE_LABEL[request.value]}`)
+    updatedBadge(STATE_LABEL[request.value])
   }
 })
 
-// const rootElement = document.createElement('div')
-// rootElement.id = 'openai-forge'
-// rootElement.innerText = 'Hello OpenAI Forge!'
+const rootElement = document.createElement('div')
+rootElement.id = 'openai-forge'
 
-// document.body.appendChild(rootElement)
+const headerElement = document.createElement('div')
+headerElement.classList.add('header')
+headerElement.innerText = 'OpenAI Forge'
+
+const bodyElement = document.createElement('div')
+bodyElement.classList.add('body')
+bodyElement.innerText = 'Loaddng...'
+
+rootElement.appendChild(headerElement)
+rootElement.appendChild(bodyElement)
+document.body.appendChild(rootElement)
 
 console.debug('OpenAI Forge', 'Content script loaded.')
