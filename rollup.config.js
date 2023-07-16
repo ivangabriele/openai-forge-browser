@@ -60,8 +60,16 @@ export default defineConfig([
       sourcemap: true,
     },
 
+    plugins: [...commonPlugins],
+  },
+  {
+    input: './scripts/dummy.js',
+
+    output: {
+      file: './dist/dummy.js',
+    },
+
     plugins: [
-      ...commonPlugins,
       copy({
         targets: [
           // Chrome
