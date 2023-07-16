@@ -31,12 +31,12 @@
     "verbatimModuleSyntax": true
   },
   "include": [
-    "background/**/*.ts",
     "common/**/*.ts",
     "content/**/*.ts",
     "popup/**/*.ts",
     "scripts/**/*.js",
-    "rollup.config.mjs"
+    "rollup.config.js",
+    "worker/**/*.ts"
   ],
   "exclude": ["dist/*", "node_modules/*"]
 }

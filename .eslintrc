@@ -1,6 +1,6 @@
 {
   "extends": "@ivangabriele/eslint-config-typescript-base",
-  "ignorePatterns": ["config/*", "dist/*", "rollup.config.js"],
+  "ignorePatterns": ["dist/*"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },

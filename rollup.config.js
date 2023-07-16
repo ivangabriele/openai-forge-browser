@@ -1,32 +1,12 @@
 import commonjs from '@rollup/plugin-commonjs'
-import copy from 'rollup-plugin-copy'
 import resolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
+import copy from 'rollup-plugin-copy'
 import postcss from 'rollup-plugin-postcss'
 import { swc } from 'rollup-plugin-swc3'
 
 // eslint-disable-next-line import/no-default-export
 export default defineConfig([
-  {
-    input: './background/index.ts',
-
-    output: {
-      file: './dist/background.js',
-      format: 'esm',
-      sourcemap: true,
-    },
-
-    plugins: [
-      commonjs(),
-      resolve({
-        preferBuiltins: true,
-      }),
-      swc({
-        sourceMaps: true,
-        tsconfig: './tsconfig.json',
-      }),
-    ],
-  },
   {
     input: './content/index.ts',
 
@@ -70,10 +50,30 @@ export default defineConfig([
       }),
       copy({
         targets: [
-          { src: './manifest.json', dest: './dist' },
-          { src: './assets/icons', dest: './dist/assets' },
-          { src: './popup/index.html', dest: './dist', rename: 'popup.html' },
+          { dest: './dist', src: './manifest.json' },
+          { dest: './dist/assets', src: './assets/icons' },
+          { dest: './dist', rename: 'popup.html', src: './popup/index.html' },
         ],
+      }),
+    ],
+  },
+  {
+    input: './worker/index.ts',
+
+    output: {
+      file: './dist/worker.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+
+    plugins: [
+      commonjs(),
+      resolve({
+        preferBuiltins: true,
+      }),
+      swc({
+        sourceMaps: true,
+        tsconfig: './tsconfig.json',
       }),
     ],
   },

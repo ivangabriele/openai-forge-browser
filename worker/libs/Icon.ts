@@ -7,7 +7,7 @@ export class Icon {
     const animationKey = String(this.#animationIndex + 1).padStart(2, '0')
     const iconPath = `/assets/icons/a${animationKey}.png`
 
-    chrome.browserAction.setIcon({
+    chrome.action.setIcon({
       path: iconPath,
     })
 
@@ -36,7 +36,7 @@ export class Icon {
 
     this.#animationIndex = 0
 
-    chrome.browserAction.setIcon({
+    chrome.action.setIcon({
       path: '/assets/icons/x48.png',
     })
   }
