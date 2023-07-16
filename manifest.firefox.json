@@ -12,7 +12,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "openai-forge@ivangabriele.com",
+      "id": "openai-forge-firefox@ivangabriele.com",
       "strict_min_version": "115.0"
     }
   },
