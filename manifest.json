@@ -16,7 +16,7 @@
       "js": ["content.js"]
     }
   ],
-  "permissions": ["webRequest", "*://*/*"],
+  "permissions": ["*://*/*"],
   "icons": {
     "16": "assets/icons/x16.png",
     "32": "assets/icons/x16.png",
