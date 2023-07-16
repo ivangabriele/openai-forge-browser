@@ -16,7 +16,7 @@
       "js": ["content.js"]
     }
   ],
-  "permissions": ["*://*/*"],
+  "permissions": ["*://chat.openai.com/*"],
   "icons": {
     "16": "assets/icons/x16.png",
     "32": "assets/icons/x16.png",
