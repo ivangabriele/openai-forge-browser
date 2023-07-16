@@ -1,0 +1,14 @@
+{
+  "extends": "@ivangabriele/eslint-config-typescript-base",
+  "ignorePatterns": ["config/*", "dist/*", "rollup.config.js"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-console": ["warn", { "allow": ["debug", "error", "info", "warn"] }],
+
+    "import/no-extraneous-dependencies": "off",
+
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  }
+}

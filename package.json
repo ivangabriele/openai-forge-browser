@@ -12,8 +12,10 @@
   "scripts": {
     "build": "yarn clean && rollup -c",
     "clean": "rm -Rf ./dist",
+    "dev": "yarn clean && rollup -c --watch",
     "icons": "rm -Rf ./assets/icons && mkdir ./assets/icons && node ./scripts/generateIcons.js && rm -Rf ./assets/icons/*.svg",
-    "watch": "yarn clean && rollup -c --watch"
+    "test:lint": "eslint .",
+    "test:type": "tsc --noEmit"
   },
   "devDependencies": {
     "@ivangabriele/eslint-config-typescript-base": "7.1.1",

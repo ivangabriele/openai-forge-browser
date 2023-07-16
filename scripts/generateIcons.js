@@ -1,11 +1,14 @@
-import { promises as fs } from 'fs'
+/* eslint-disable no-await-in-loop */
+
 import { rgb } from 'd3-color'
+import { promises as fs } from 'fs'
 import sharp from 'sharp'
 
 const originalIconPath = './assets/icon.svg'
 
 // Base icons
-const sizes = [16, 32, 48, 128]
+const sizes = [16, 32, 48, 128, 512]
+// eslint-disable-next-line no-restricted-syntax
 for (const size of sizes) {
   const newPngIconPath = `./assets/icons/x${size}.png`
   console.info(`Writing ${newPngIconPath}...`)
@@ -21,7 +24,7 @@ for (const size of sizes) {
 const originalIconSource = await fs.readFile(originalIconPath, 'utf8')
 const fillRegExp = /fill:#([0-9a-f]{6})/i
 let index = 0
-while (index++ < 17) {
+while (index < 17) {
   const hue = index * 15
 
   const colorAsRgb = rgb(`hsl(${hue}, 100%, 50%)`)
@@ -40,4 +43,6 @@ while (index++ < 17) {
     })
     .resize(48, 48)
     .toFile(newPngIconPath)
+
+  index += 1
 }

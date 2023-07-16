@@ -13,18 +13,16 @@ export class Icon {
 
     if (this.#isAscending) {
       if (this.#animationIndex < 13) {
-        this.#animationIndex++
+        this.#animationIndex += 1
       } else {
-        this.#animationIndex--
+        this.#animationIndex -= 1
         this.#isAscending = false
       }
+    } else if (this.#animationIndex > 0) {
+      this.#animationIndex -= 1
     } else {
-      if (this.#animationIndex > 0) {
-        this.#animationIndex--
-      } else {
-        this.#animationIndex++
-        this.#isAscending = true
-      }
+      this.#animationIndex += 1
+      this.#isAscending = true
     }
 
     // Continue the loop
