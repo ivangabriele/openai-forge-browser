@@ -18,7 +18,6 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./dist",
     "preserveConstEnums": true,
     "skipLibCheck": true,
     "strict": true,
@@ -31,12 +30,12 @@
     "verbatimModuleSyntax": true
   },
   "include": [
+    "background/**/*.ts",
     "common/**/*.ts",
     "content/**/*.ts",
     "popup/**/*.ts",
     "scripts/**/*.js",
-    "rollup.config.js",
-    "worker/**/*.ts"
+    "rollup.config.js"
   ],
   "exclude": ["dist/*", "node_modules/*"]
 }

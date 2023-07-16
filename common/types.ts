@@ -1,10 +1,20 @@
+export enum Action {
+  ASK = 'ASK',
+}
+
+export type MessageData = {
+  action: Action
+  message: string
+}
+
+export type MessageEvent = {
+  data: string
+}
+
 export type Request =
   | {
       type: RequestType.DATA
-      value: {
-        action: Action
-        message: string
-      }
+      value: MessageData
     }
   | {
       type: RequestType.ERROR
@@ -20,10 +30,6 @@ export enum RequestType {
   DATA = 'DATA',
   ERROR = 'ERROR',
   STATE = 'STATE',
-}
-
-export enum Action {
-  ASK = 'ASK',
 }
 
 export enum State {

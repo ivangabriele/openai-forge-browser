@@ -60,3 +60,11 @@ chrome.runtime.onMessage.addListener((request: Request) => {
     showToast(`OpenAI Forge: ${STATE_LABEL[request.value]}`)
   }
 })
+
+// const rootElement = document.createElement('div')
+// rootElement.id = 'openai-forge'
+// rootElement.innerText = 'Hello OpenAI Forge!'
+
+// document.body.appendChild(rootElement)
+
+console.debug('OpenAI Forge', 'Content script loaded.')

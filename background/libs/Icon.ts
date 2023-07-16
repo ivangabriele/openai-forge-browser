@@ -3,13 +3,17 @@ export class Icon {
   #isAscending: boolean = true
   #timeout: NodeJS.Timeout | undefined = undefined
 
-  animate() {
+  async animate() {
     const animationKey = String(this.#animationIndex + 1).padStart(2, '0')
     const iconPath = `/assets/icons/a${animationKey}.png`
 
-    chrome.action.setIcon({
-      path: iconPath,
-    })
+    try {
+      await chrome.action.setIcon({
+        path: iconPath,
+      })
+    } catch (err) {
+      console.debug('[ERROR]', err)
+    }
 
     if (this.#isAscending) {
       if (this.#animationIndex < 13) {
@@ -29,15 +33,19 @@ export class Icon {
     this.#timeout = setTimeout(() => this.animate(), 200)
   }
 
-  stop() {
+  async stop() {
     if (this.#timeout) {
       clearTimeout(this.#timeout)
     }
 
     this.#animationIndex = 0
 
-    chrome.action.setIcon({
-      path: '/assets/icons/x48.png',
-    })
+    try {
+      await chrome.action.setIcon({
+        path: '/assets/icons/x48.png',
+      })
+    } catch (err) {
+      console.debug('[ERROR]', err)
+    }
   }
 }
