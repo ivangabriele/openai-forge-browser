@@ -26,7 +26,7 @@ export class Icon {
     }
 
     // Continue the loop
-    this.#timeout = setTimeout(() => this.animate(), 100)
+    this.#timeout = setTimeout(() => this.animate(), 200)
   }
 
   stop() {
