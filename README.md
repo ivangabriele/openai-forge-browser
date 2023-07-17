@@ -3,6 +3,24 @@
   <img alt="OpenAI Forge Header" width="100%" src="assets/docs/readme-header.svg" />
 </p>
 
+<p align="center">
+  <!-- <a href="https://chrome.google.com/webstore/detail/openai-forge/nnppeeohaoogddcihgdpcolkmibbkked">
+    <img alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/users/nnppeeohaoogddcihgdpcolkmibbkked?label=Chrome&style=for-the-badge">
+  </a> -->
+  <a href="https://chrome.google.com/webstore/detail/openai-forge/nnppeeohaoogddcihgdpcolkmibbkked">
+    <img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-Install-blue?style=for-the-badge">
+  </a>
+  <!-- <a href="https://addons.mozilla.org/firefox/addon/openai-forge/">
+    <img alt="Firefox Add-ons" src="https://img.shields.io/amo/users/openai-forge?label=Firefox&style=for-the-badge" />
+  </a> -->
+  <a href="https://addons.mozilla.org/firefox/addon/openai-forge/">
+    <img alt="Firefox Add-ons" src="https://img.shields.io/badge/Firefox-Install-blue?style=for-the-badge">
+  </a>
+  <a href="https://github.com/ivangabriele/openai-forge-browser/actions?query=check">
+    <img src="https://img.shields.io/github/actions/workflow/status/ivangabriele/openai-forge-browser/check.yml?label=Tests&amp;style=for-the-badge" alt="Check Workflow Status">
+  </a>
+</p>
+
 ---
 
 > OpenAI Forge automates your communication between Visual Studio Code and ChatGPT 🤖.
