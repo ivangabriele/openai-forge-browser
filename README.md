@@ -41,3 +41,7 @@ to know how to use this extension.
 - The reconnection toasts are quite annoying when you just want to use ChatGPT without OpenAI Forge.
   I will soon replace the toats with a fixed badge which will make it way less distracting. 
 - The extension popup is not ready yet. 
+
+## Screenshot
+
+![Screenshot](assets/docs/screenshot-firefox-2400x1800-compressed.png)
