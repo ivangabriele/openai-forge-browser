@@ -17,7 +17,7 @@
     }
   },
   "content_security_policy": {
-    "extension_pages": "default-src 'self'; connect-src 'self' ws://localhost:4242;"
+    "extension_pages": "default-src 'self'; connect-src 'self' http://localhost:4242 ws://localhost:4242;"
   },
   "content_scripts": [
     {

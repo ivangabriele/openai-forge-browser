@@ -44,6 +44,8 @@ async function handleTabUpdated(
 }
 
 async function handleTabRemoved(tabId: number): Promise<void> {
+  clearTimeout(tabTimeout[tabId])
+
   const previousWebSocket = tabSocket[tabId]
   if (previousWebSocket) {
     await sendState(tabId, State.DISCONNECTING)
@@ -62,13 +64,23 @@ async function startWebSocketClient(tabId: number, isRetry: boolean = false): Pr
   try {
     await sendState(tabId, isRetry ? State.RECONNECTING : State.CONNECTING)
 
+    try {
+      await fetch(WEB_SOCKET_SERVER_URI.replace('ws', 'http'), {
+        mode: 'no-cors',
+      })
+    } catch (err) {
+      restartWebSocketClient(tabId)
+
+      return
+    }
+
     const webSocket = new WebSocket(WEB_SOCKET_SERVER_URI)
     tabSocket[tabId] = webSocket
 
     webSocket.onopen = async () => {
-      await sendState(tabId, State.CONNECTED)
-
       clearTimeout(tabTimeout[tabId])
+
+      await sendState(tabId, State.CONNECTED)
 
       await icon.animate()
     }
@@ -102,9 +114,9 @@ async function startWebSocketClient(tabId: number, isRetry: boolean = false): Pr
       }
     }
   } catch (err) {
-    await sendError(tabId, 'An unexpected error happened', err)
-
     clearTimeout(tabTimeout[tabId])
+
+    await sendError(tabId, 'An unexpected error happened', err)
   }
 }
 
