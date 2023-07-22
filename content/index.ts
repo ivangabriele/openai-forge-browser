@@ -19,7 +19,11 @@ chrome.runtime.onMessage.addListener((request: Request) => {
         return
       }
 
-      const promptButton: HTMLButtonElement | null | undefined = promptTextarea.parentElement?.querySelector('button')
+      const promptBoxButtons = promptTextarea.parentElement?.querySelectorAll('button')
+      if (!promptBoxButtons) {
+        return
+      }
+      const promptButton = promptBoxButtons[promptBoxButtons.length - 1]
       if (!promptButton) {
         return
       }
