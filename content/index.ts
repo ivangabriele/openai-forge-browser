@@ -16,23 +16,26 @@ chrome.runtime.onMessage.addListener((request: Request) => {
     if (request.value.action === Action.ASK) {
       // Handle both normal chats and Custom GPT sandbox chat which have 2 textareas
       const promptTextareas: NodeListOf<HTMLTextAreaElement> = document.querySelectorAll('textarea#prompt-textarea')
-      const promptTextarea: HTMLTextAreaElement | undefined = promptTextareas[2] || promptTextareas[1]
+      const promptTextarea: HTMLTextAreaElement | undefined = promptTextareas[1] || promptTextareas[0]
       if (!promptTextarea) {
         return
       }
-
       const promptBoxButtons = promptTextarea.parentElement?.querySelectorAll('button')
       if (!promptBoxButtons) {
         return
       }
-      const promptButton = promptBoxButtons[promptBoxButtons.length - 1]
-      if (!promptButton) {
+      const lastPromptBoxButton = promptBoxButtons[promptBoxButtons.length - 1]
+      if (!lastPromptBoxButton) {
         return
       }
+      const isSubmitButton = lastPromptBoxButton.dataset.testid === 'send-button'
 
       promptTextarea.value = request.value.message
       promptTextarea.dispatchEvent(new Event('input', { bubbles: true }))
-      promptButton.click()
+
+      if (isSubmitButton) {
+        lastPromptBoxButton.click()
+      }
     }
 
     return
