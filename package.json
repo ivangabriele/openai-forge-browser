@@ -5,8 +5,7 @@
   "version": "0.2.0",
   "private": true,
   "engines": {
-    "node": "20",
-    "npm": "9"
+    "node": "20"
   },
   "type": "module",
   "scripts": {
