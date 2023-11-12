@@ -14,7 +14,9 @@ function updatedBadge(message: string, isError: boolean = false) {
 chrome.runtime.onMessage.addListener((request: Request) => {
   if (request.type === RequestType.DATA) {
     if (request.value.action === Action.ASK) {
-      const promptTextarea: HTMLTextAreaElement | null = document.querySelector('textarea#prompt-textarea')
+      // Handle both normal chats and Custom GPT sandbox chat which have 2 textareas
+      const promptTextareas: NodeListOf<HTMLTextAreaElement> = document.querySelectorAll('textarea#prompt-textarea')
+      const promptTextarea: HTMLTextAreaElement | undefined = promptTextareas[2] || promptTextareas[1]
       if (!promptTextarea) {
         return
       }
