@@ -2,6 +2,16 @@ import { State } from './types'
 
 export const RECONNECTION_DELAY_IN_MS = 5000
 
+export const STATE_CSS_CLASS: Record<State, string> = {
+  [State.CONNECTING]: 'is-loading',
+  [State.CONNECTED]: 'is-connected',
+  [State.DISCONNECTED]: 'is-disconnected',
+  [State.DISCONNECTING]: 'is-loading',
+  [State.MATCHED]: 'is-loading',
+  [State.RECONNECTING]: 'is-loading',
+  [State.WILL_RECONNECT]: 'is-loading',
+}
+
 export const STATE_LABEL: Record<State, string> = {
   [State.CONNECTING]: 'Connecting...',
   [State.CONNECTED]: 'Connected.',

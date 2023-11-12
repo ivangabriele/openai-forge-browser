@@ -1,21 +1,86 @@
-#openai-forge {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  line-height: 1;
-  position: fixed;
-  right: 0;
-  top: 0;
-  user-select: none;
-  width: 224px;
-}
+/***********************************************************
+  Box
+*/
 
 #openai-forge * {
   box-sizing: border-box;
 }
 
-#openai-forge .header {
+/***********************************************************
+  Badge
+*/
+
+#openai-forge .Badge {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  bottom: 12px;
+  border: solid 1px rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  height: 26px;
+  justify-content: center;
+  padding: 0 0 2px 1px;
+  position: fixed;
+  right: 12px;
+  width: 26px;
+}
+@media (min-width: 1024px) {
+  #openai-forge .Badge {
+    right: 50px;
+  }
+}
+#openai-forge .Badge.has-error {
+  background-color: #fc3623;
+}
+#openai-forge .Badge.is-connected {
+  background-color: #e52b50;
+}
+#openai-forge .Badge.is-disconnected {
+  background-color: #000000;
+}
+#openai-forge .Badge.is-loading {
+  background-color: #fc3623;
+}
+
+#openai-forge .Badge img {
+  height: 16px;
+  width: 16px;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+#openai-forge .Badge.is-loading img {
+  animation: rotation 2s infinite linear;
+}
+
+/***********************************************************
+  Tooltip
+*/
+
+#openai-forge .Tooltip {
+  bottom: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  line-height: 1;
+  pointer-events: none;
+  position: fixed;
+  right: -240px;
+  transition: transform 0.25s ease-in-out;
+  user-select: none;
+  width: 240px;
+}
+#openai-forge .Tooltip.is-open {
+  transform: translate(-240px, 0);
+}
+
+#openai-forge .Tooltip-header {
   align-items: center;
   background-color: #e52b50;
   color: white;
@@ -25,7 +90,7 @@
   padding: 0 6px 2px;
 }
 
-#openai-forge .body {
+#openai-forge .Tooltip-body {
   align-items: center;
   background-color: #222222;
   color: white;
@@ -34,6 +99,6 @@
   height: 26px;
   padding: 0 6px 0;
 }
-#openai-forge .body.has-error {
+#openai-forge .Tooltip-body.has-error {
   background-color: #fc3623;
 }

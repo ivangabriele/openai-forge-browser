@@ -1,14 +1,42 @@
-import { STATE_LABEL } from '../common/constants'
-import { RequestType, type Request, Action } from '../common/types'
+import { STATE_CSS_CLASS, STATE_LABEL } from '../common/constants'
+import { RequestType, type Request, Action, State } from '../common/types'
 
-function updatedBadge(message: string, isError: boolean = false) {
-  bodyElement.innerText = message
+function clearBadgeCssClasses() {
+  badgeElement.classList.forEach(className => {
+    if (['Badge', 'is-open'].includes(className)) {
+      return
+    }
 
-  if (isError && !bodyElement.classList.contains('with-error')) {
-    bodyElement.classList.add('with-error')
-  } else if (bodyElement.classList.contains('with-error')) {
-    bodyElement.classList.remove('with-error')
+    badgeElement.classList.remove(className)
+  })
+}
+
+function setBadgeError(errorMessage: string) {
+  if (!tooltipBodyElement.classList.contains('has-error')) {
+    tooltipBodyElement.classList.add('has-error')
   }
+
+  tooltipBodyElement.innerText = errorMessage
+}
+
+function toggleTooltip() {
+  const isTooltipOpen = tootipElement.classList.contains('is-open')
+
+  if (isTooltipOpen) {
+    tootipElement.classList.remove('is-open')
+  } else {
+    tootipElement.classList.add('is-open')
+  }
+}
+
+function updateBadgeState(nextState: State) {
+  clearBadgeCssClasses()
+  badgeElement.classList.add(STATE_CSS_CLASS[nextState])
+
+  if (tooltipBodyElement.classList.contains('has-error')) {
+    tooltipBodyElement.classList.remove('has-error')
+  }
+  tooltipBodyElement.innerText = STATE_LABEL[nextState]
 }
 
 chrome.runtime.onMessage.addListener((request: Request) => {
@@ -42,27 +70,63 @@ chrome.runtime.onMessage.addListener((request: Request) => {
   }
 
   if (request.type === RequestType.ERROR) {
-    updatedBadge(request.value, true)
+    setBadgeError(request.value)
   }
 
   if (request.type === RequestType.STATE) {
-    updatedBadge(STATE_LABEL[request.value])
+    updateBadgeState(request.value)
   }
 })
 
-const rootElement = document.createElement('div')
-rootElement.id = 'openai-forge'
+const IS_DARK_MODE = document.querySelector('html')?.classList.contains('dark')
 
-const headerElement = document.createElement('div')
-headerElement.classList.add('header')
-headerElement.innerText = 'OpenAI Forge'
+// ---------------------------------------------------------
+// Box
 
-const bodyElement = document.createElement('div')
-bodyElement.classList.add('body')
-bodyElement.innerText = 'Loaddng...'
+const boxElement = document.createElement('div')
+boxElement.id = 'openai-forge'
 
-rootElement.appendChild(headerElement)
-rootElement.appendChild(bodyElement)
-document.body.appendChild(rootElement)
+// ---------------------------------------------------------
+// Badge
+
+const badgeElement = document.createElement('button')
+badgeElement.classList.add('Badge')
+
+const buttonElementIconUrl = IS_DARK_MODE
+  ? chrome.runtime.getURL('assets/icon-dark.svg')
+  : chrome.runtime.getURL('assets/icon.svg')
+const badgeImageElement = document.createElement('img')
+badgeImageElement.src = buttonElementIconUrl
+badgeElement.appendChild(badgeImageElement)
+
+badgeElement.addEventListener('click', toggleTooltip)
+
+boxElement.appendChild(badgeElement)
+
+// ---------------------------------------------------------
+// Tooltip
+
+const tootipElement = document.createElement('div')
+tootipElement.classList.add('Tooltip')
+
+const tooltipHeaderElement = document.createElement('div')
+tooltipHeaderElement.classList.add('Tooltip-header')
+tooltipHeaderElement.innerText = 'OpenAI Forge'
+tootipElement.appendChild(tooltipHeaderElement)
+
+const tooltipBodyElement = document.createElement('div')
+tooltipBodyElement.classList.add('Tooltip-body')
+tooltipBodyElement.innerText = 'Loaddng...'
+tootipElement.appendChild(tooltipBodyElement)
+
+boxElement.appendChild(tootipElement)
+
+// ---------------------------------------------------------
+// DOM initialization
+
+document.body.appendChild(boxElement)
+
+// ---------------------------------------------------------
+// Sanity check
 
 console.debug('OpenAI Forge', 'Content script loaded.')

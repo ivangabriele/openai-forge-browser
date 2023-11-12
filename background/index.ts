@@ -40,6 +40,7 @@ async function handleTabUpdated(
   }
 
   await sendState(tabId, State.MATCHED)
+
   startWebSocketClient(tabId)
 }
 

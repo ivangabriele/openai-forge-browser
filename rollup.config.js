@@ -74,6 +74,8 @@ export default defineConfig([
         targets: [
           // Chrome
           { dest: './dist/chrome/assets', src: './assets/icons' },
+          { dest: './dist/chrome/assets', src: './assets/icon.svg' },
+          { dest: './dist/chrome/assets', src: './assets/icon-dark.svg' },
           { dest: './dist/chrome', rename: 'content.css', src: './content/index.css' },
           { dest: './dist/chrome', rename: 'popup.css', src: './popup/index.css' },
           { dest: './dist/chrome', rename: 'popup.html', src: './popup/index.html' },
