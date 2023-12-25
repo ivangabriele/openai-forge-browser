@@ -1351,10 +1351,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/firefox-webext-browser@npm:111.0.1":
-  version: 111.0.1
-  resolution: "@types/firefox-webext-browser@npm:111.0.1"
-  checksum: 2afce47cbded7ebb1d55e240c86cf4ea3eaa995267590f149c14294ca5a2aeb9410ff33403fc49c4455319bbeeaffd72c908c02bbd6209df4660b77e5f7c184c
+"@types/firefox-webext-browser@npm:120.0.0":
+  version: 120.0.0
+  resolution: "@types/firefox-webext-browser@npm:120.0.0"
+  checksum: 8a04ae4496da318e6481a1e6e82520eeaf739a3a41f516236e11b1ed47eeadc66e8966320661ed9a1b17fea8b5bb6a3cea38809067301ce730c0a2ecf24c9c55
   languageName: node
   linkType: hard
 
@@ -7300,7 +7300,7 @@ __metadata:
     "@swc/core": "npm:1.3.67"
     "@types/chrome": "npm:0.0.241"
     "@types/d3-color": "npm:3.1.0"
-    "@types/firefox-webext-browser": "npm:111.0.1"
+    "@types/firefox-webext-browser": "npm:120.0.0"
     "@types/mocha": "npm:10.0.1"
     "@types/node": "npm:20.4.2"
     "@types/toastify-js": "npm:1.11.1"
