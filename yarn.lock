@@ -148,26 +148,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ivangabriele/eslint-config-typescript-base@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@ivangabriele/eslint-config-typescript-base@npm:7.1.1"
+"@ivangabriele/eslint-config-typescript-base@npm:8.0.1":
+  version: 8.0.1
+  resolution: "@ivangabriele/eslint-config-typescript-base@npm:8.0.1"
   peerDependencies:
-    "@ivangabriele/prettier-config": ^3.0.0
-    "@typescript-eslint/eslint-plugin": ^5.0.0
-    "@typescript-eslint/parser": ^5.0.0
+    "@ivangabriele/prettier-config": ^4.0.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.0.0
     eslint-config-airbnb: ^19.0.0
     eslint-config-airbnb-typescript: ^17.0.0
-    eslint-config-prettier: ^8.0.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.0.0
     eslint-plugin-jest: ^27.0.0
     eslint-plugin-no-null: ^1.0.0
-    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-prettier: ^5.0.0
     eslint-plugin-sort-destructure-keys: ^1.0.0
     eslint-plugin-sort-keys-fix: ^1.0.0
-    eslint-plugin-typescript-sort-keys: ^2.0.0
+    eslint-plugin-typescript-sort-keys: ^3.0.0
     typescript: ^5.0.0
-  checksum: d99e2d96054ed8a0c10a9df2427b015f4b6a86bcd925a0ad6d5c8bfd86fccfbdd4330a37456ba883997366172e2b650e979df353c92814b85a9e18405f49fbe2
+  checksum: 4a04545396fd00cb8d34e523eb16562589689b14f8e6ab9ace6da62e1aedb1e1be3377bb06911fbcc48da7782689bbe72dbc6b9829cfac688aab07f14d4d81ca
   languageName: node
   linkType: hard
 
@@ -7291,7 +7291,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "openai-forge-browser@workspace:."
   dependencies:
-    "@ivangabriele/eslint-config-typescript-base": "npm:7.1.1"
+    "@ivangabriele/eslint-config-typescript-base": "npm:8.0.1"
     "@ivangabriele/prettier-config": "npm:3.1.0"
     "@ivangabriele/semantic-release-config-no-npm": "npm:3.0.3"
     "@ivangabriele/tsconfig-node": "npm:1.2.2"
