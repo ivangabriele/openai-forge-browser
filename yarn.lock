@@ -3588,10 +3588,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
+"detect-libc@npm:^2.0.0":
   version: 2.0.1
   resolution: "detect-libc@npm:2.0.1"
   checksum: 10/f41b3d8c726127cc010c78bf4cdb6fda20a1a0731ae9fc34698e3b9887d82e19f249f4dc997b423f930d5be0c3ee05dc7fe6c2473dd058856c6b0700eb3e0dc6
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^2.0.2":
+  version: 2.0.3
+  resolution: "detect-libc@npm:2.0.3"
+  checksum: 10/b4ea018d623e077bd395f168a9e81db77370dde36a5b01d067f2ad7989924a81d31cb547ff764acb2aa25d50bb7fdde0b0a93bec02212b0cb430621623246d39
   languageName: node
   linkType: hard
 
@@ -8296,7 +8303,7 @@ __metadata:
     rollup-plugin-postcss: "npm:4.0.2"
     rollup-plugin-swc3: "npm:0.11.2"
     semantic-release: "npm:21.1.2"
-    sharp: "npm:0.32.2"
+    sharp: "npm:0.32.6"
     tslib: "npm:2.6.3"
     typescript: "npm:5.4.5"
     ws: "npm:8.17.0"
@@ -10184,12 +10191,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:0.32.2":
-  version: 0.32.2
-  resolution: "sharp@npm:0.32.2"
+"sharp@npm:0.32.6":
+  version: 0.32.6
+  resolution: "sharp@npm:0.32.6"
   dependencies:
     color: "npm:^4.2.3"
-    detect-libc: "npm:^2.0.1"
+    detect-libc: "npm:^2.0.2"
     node-addon-api: "npm:^6.1.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
@@ -10197,7 +10204,7 @@ __metadata:
     simple-get: "npm:^4.0.1"
     tar-fs: "npm:^3.0.4"
     tunnel-agent: "npm:^0.6.0"
-  checksum: 10/50e8438d453008ae865a814604bd61dff529d4e9f0ab6f12699af14283c0d7cd69ee72324dd66d3ff2becd377416f3a16725495a24ba8c59313e880186593723
+  checksum: 10/f0e4a86881e590f86b05ea463229f62cd29afc2dca08b3f597889f872f118c2c456f382bf2c3e90e934b7a1d30f109cf5ed584cf5a23e79d6b6403a8dc0ebe32
   languageName: node
   linkType: hard
 
