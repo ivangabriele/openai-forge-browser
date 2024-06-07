@@ -4239,18 +4239,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-typescript-sort-keys@npm:2.3.0":
-  version: 2.3.0
-  resolution: "eslint-plugin-typescript-sort-keys@npm:2.3.0"
+"eslint-plugin-typescript-sort-keys@npm:3.2.0":
+  version: 3.2.0
+  resolution: "eslint-plugin-typescript-sort-keys@npm:3.2.0"
   dependencies:
     "@typescript-eslint/experimental-utils": "npm:^5.0.0"
     json-schema: "npm:^0.4.0"
     natural-compare-lite: "npm:^1.4.0"
   peerDependencies:
-    "@typescript-eslint/parser": ^1 || ^2 || ^3 || ^4 || ^5
-    eslint: ^5 || ^6 || ^7 || ^8
+    "@typescript-eslint/parser": ^6 || ^7
+    eslint: ^7 || ^8
     typescript: ^3 || ^4 || ^5
-  checksum: 10/d61483d8de0acd58dda6bc660c76f6a1d9994b09bf7c6008f9e2fdce69145de18dc11eee5ee98e2a41ac2930ba956bebf029703d1f77191c84c77986d4cf5972
+  checksum: 10/6ef3273ed1a0a1c60dd6750b4c9884f6c43668f552021d622492c26f2f2d8f7d86ca7f9fbfff23e3b756854bf1014e5f8e690eddccfb6ad569987b88650a9d55
   languageName: node
   linkType: hard
 
@@ -8293,7 +8293,7 @@ __metadata:
     eslint-plugin-prettier: "npm:4.2.1"
     eslint-plugin-sort-destructure-keys: "npm:1.6.0"
     eslint-plugin-sort-keys-fix: "npm:1.1.2"
-    eslint-plugin-typescript-sort-keys: "npm:2.3.0"
+    eslint-plugin-typescript-sort-keys: "npm:3.2.0"
     execa: "npm:7.2.0"
     mocha: "npm:10.4.0"
     postcss: "npm:8.4.31"
