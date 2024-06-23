@@ -22,7 +22,7 @@
     "@ivangabriele/prettier-config": "3.2.0",
     "@ivangabriele/semantic-release-config-no-npm": "3.0.3",
     "@ivangabriele/tsconfig-node": "1.2.2",
-    "@rollup/plugin-commonjs": "25.0.8",
+    "@rollup/plugin-commonjs": "26.0.1",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@swc/core": "1.5.25",
     "@types/chrome": "0.0.268",
