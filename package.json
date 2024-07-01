@@ -18,7 +18,7 @@
     "test:type": "tsc --noEmit"
   },
   "devDependencies": {
-    "@ivangabriele/eslint-config-typescript-base": "7.1.1",
+    "@ivangabriele/eslint-config-typescript-base": "10.0.0",
     "@ivangabriele/prettier-config": "3.2.0",
     "@ivangabriele/semantic-release-config-no-npm": "3.0.3",
     "@ivangabriele/tsconfig-node": "1.2.2",
