@@ -338,10 +338,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ivangabriele/tsconfig-node@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@ivangabriele/tsconfig-node@npm:1.2.2"
-  checksum: 10/3afc2d8a435a7080c24a03e1019c5b3a50c34de09ebff4bb026646ff4a1ceb9b216eb07fefe84159e5f612b8eab9f08e356c884dba29d44abccbb5039e73a4cf
+"@ivangabriele/tsconfig-node@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@ivangabriele/tsconfig-node@npm:2.0.0"
+  peerDependencies:
+    typescript: ^5
+  checksum: 10/55ba7bc161dc52417fbe8f03fd28d08c4949ac2a46d68a65789a0cc1df72606747b5e9941ba943a5a495f880479df3c759591b30315850bf624c7c721034deaf
   languageName: node
   linkType: hard
 
@@ -8266,7 +8268,7 @@ __metadata:
     "@ivangabriele/eslint-config-typescript-base": "npm:7.1.1"
     "@ivangabriele/prettier-config": "npm:3.2.0"
     "@ivangabriele/semantic-release-config-no-npm": "npm:3.0.3"
-    "@ivangabriele/tsconfig-node": "npm:1.2.2"
+    "@ivangabriele/tsconfig-node": "npm:2.0.0"
     "@rollup/plugin-commonjs": "npm:25.0.8"
     "@rollup/plugin-node-resolve": "npm:15.2.3"
     "@swc/core": "npm:1.5.25"
