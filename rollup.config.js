@@ -87,5 +87,16 @@ export default defineConfig([
         ],
       }),
     ],
+
+    watch: {
+      include: [
+        'assets/**',
+        'content/index.css',
+        'popup/index.css',
+        'popup/index.html',
+        'manifest.chrome.json',
+        'manifest.firefox.json',
+      ],
+    },
   },
 ])

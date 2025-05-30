@@ -1,5 +1,7 @@
 export enum Action {
   ASK = 'ASK',
+  GET_THREAD_AS_MARKDOWN = 'GET_THREAD_AS_MARKDOWN',
+  SEND_THREAD_AS_MARKDOWN = 'SEND_THREAD_AS_MARKDOWN',
 }
 
 export type MessageData = {

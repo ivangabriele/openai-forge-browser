@@ -1,5 +1,7 @@
 import { STATE_CSS_CLASS, STATE_LABEL } from '../common/constants'
 import { Action, type Request, RequestType, type State } from '../common/types'
+import { getThreadAsMarkdown } from './actions/getThreadAsMarkdown'
+import { sendRequest } from './utils/sendRequest'
 
 function clearBadgeCssClasses() {
   for (const className of badgeElement.classList) {
@@ -40,7 +42,7 @@ function updateBadgeState(nextState: State) {
 }
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
-chrome.runtime.onMessage.addListener((request: Request) => {
+chrome.runtime.onMessage.addListener((request: Request, _sender, _sendResponse) => {
   if (request.type === RequestType.DATA) {
     if (request.value.action === Action.ASK) {
       // Handle both normal chats and Custom GPT sandbox chat which have 2 textareas
@@ -65,6 +67,18 @@ chrome.runtime.onMessage.addListener((request: Request) => {
       if (isSubmitButton) {
         lastPromptBoxButton.click()
       }
+    }
+
+    if (request.value.action === Action.GET_THREAD_AS_MARKDOWN) {
+      const threadAsMarkdown = getThreadAsMarkdown()
+
+      sendRequest({
+        type: RequestType.DATA,
+        value: {
+          action: Action.SEND_THREAD_AS_MARKDOWN,
+          message: threadAsMarkdown,
+        },
+      })
     }
 
     return

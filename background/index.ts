@@ -2,7 +2,7 @@ import { RECONNECTION_DELAY_IN_MS, WEB_SOCKET_SERVER_URI } from '../common/const
 import { type MessageData, RequestType, State } from '../common/types'
 import { Icon } from './libs/Icon'
 import { sendError } from './utils/sendError'
-import { sendRequest } from './utils/sendRequest'
+import { sendRequest } from '../common/utils/sendRequest'
 import { sendState } from './utils/sendState'
 
 const icon: Icon = new Icon()
