@@ -1,14 +1,14 @@
 import { STATE_CSS_CLASS, STATE_LABEL } from '../common/constants'
-import { RequestType, type Request, Action, State } from '../common/types'
+import { Action, type Request, RequestType, type State } from '../common/types'
 
 function clearBadgeCssClasses() {
-  badgeElement.classList.forEach(className => {
+  for (const className of badgeElement.classList) {
     if (['Badge', 'is-open'].includes(className)) {
       return
     }
 
     badgeElement.classList.remove(className)
-  })
+  }
 }
 
 function setBadgeError(errorMessage: string) {
@@ -39,6 +39,7 @@ function updateBadgeState(nextState: State) {
   tooltipBodyElement.innerText = STATE_LABEL[nextState]
 }
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 chrome.runtime.onMessage.addListener((request: Request) => {
   if (request.type === RequestType.DATA) {
     if (request.value.action === Action.ASK) {
@@ -129,4 +130,4 @@ document.body.appendChild(boxElement)
 // ---------------------------------------------------------
 // Sanity check
 
-console.debug('OpenAI Forge', 'Content script loaded.')
+console.info('OpenAI Forge', 'Content script loaded.')

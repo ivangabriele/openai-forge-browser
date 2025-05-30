@@ -1,6 +1,6 @@
+import { promises as fs } from 'node:fs'
 // Get version for npm version
 import { $, execa } from 'execa'
-import { promises as fs } from 'fs'
 
 async function readJsonFile(jsonFilePath) {
   const jsonFileSource = await fs.readFile(jsonFilePath, 'utf8')

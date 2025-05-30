@@ -1,9 +1,9 @@
+import { RECONNECTION_DELAY_IN_MS, WEB_SOCKET_SERVER_URI } from '../common/constants'
+import { type MessageData, RequestType, State } from '../common/types'
 import { Icon } from './libs/Icon'
 import { sendError } from './utils/sendError'
 import { sendRequest } from './utils/sendRequest'
 import { sendState } from './utils/sendState'
-import { RECONNECTION_DELAY_IN_MS, WEB_SOCKET_SERVER_URI } from '../common/constants'
-import { RequestType, State, type MessageData } from '../common/types'
 
 const icon: Icon = new Icon()
 const tabSocket: Record<number, WebSocket> = {}
@@ -30,6 +30,7 @@ async function handleTabUpdated(
 
   let url: URL
   try {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     url = new URL(tab.url!)
   } catch (_err) {
     return
@@ -61,7 +62,7 @@ async function restartWebSocketClient(tabId: number): Promise<void> {
   tabTimeout[tabId] = setTimeout(() => startWebSocketClient(tabId, true), RECONNECTION_DELAY_IN_MS)
 }
 
-async function startWebSocketClient(tabId: number, isRetry: boolean = false): Promise<void> {
+async function startWebSocketClient(tabId: number, isRetry = false): Promise<void> {
   try {
     await sendState(tabId, isRetry ? State.RECONNECTING : State.CONNECTING)
 
@@ -69,7 +70,7 @@ async function startWebSocketClient(tabId: number, isRetry: boolean = false): Pr
       await fetch(WEB_SOCKET_SERVER_URI.replace('ws', 'http'), {
         mode: 'no-cors',
       })
-    } catch (err) {
+    } catch (_err) {
       restartWebSocketClient(tabId)
 
       return
@@ -96,7 +97,7 @@ async function startWebSocketClient(tabId: number, isRetry: boolean = false): Pr
     }
 
     webSocket.onerror = error => {
-      console.debug('[OpenAI Forge]', 'ERROR', String(error))
+      console.error('[OpenAI Forge]', 'ERROR', String(error))
     }
 
     webSocket.onclose = async event => {

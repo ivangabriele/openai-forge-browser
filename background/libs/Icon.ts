@@ -1,6 +1,6 @@
 export class Icon {
-  #animationIndex: number = 0
-  #isAscending: boolean = true
+  #animationIndex = 0
+  #isAscending = true
   #timeout: NodeJS.Timeout | undefined = undefined
 
   async animate() {
@@ -12,7 +12,7 @@ export class Icon {
         path: iconPath,
       })
     } catch (err) {
-      console.debug('[ERROR]', err)
+      console.error('[ERROR]', err)
     }
 
     if (this.#isAscending) {
@@ -45,7 +45,7 @@ export class Icon {
         path: '/assets/icons/x48.png',
       })
     } catch (err) {
-      console.debug('[ERROR]', err)
+      console.error('[ERROR]', err)
     }
   }
 }

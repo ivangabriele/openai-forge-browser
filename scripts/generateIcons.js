@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 
+import { promises as fs } from 'node:fs'
 import { rgb } from 'd3-color'
-import { promises as fs } from 'fs'
 import sharp from 'sharp'
 
 const originalIconPath = './assets/icon.svg'
