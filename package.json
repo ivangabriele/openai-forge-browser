@@ -53,10 +53,10 @@
     "mocha": "10.5.2",
     "postcss": "8.4.39",
     "prettier": "2.8.8",
-    "rollup": "3.29.5",
+    "rollup": "4.41.1",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
-    "rollup-plugin-swc3": "0.11.2",
+    "rollup-plugin-swc3": "0.12.1",
     "semantic-release": "21.1.2",
     "sharp": "0.33.4",
     "tslib": "2.6.3",
@@ -64,5 +64,8 @@
     "ws": "8.17.1"
   },
   "packageManager": "yarn@4.9.1",
-  "prettier": "@ivangabriele/prettier-config"
+  "prettier": "@ivangabriele/prettier-config",
+  "dependencies": {
+    "turndown": "7.2.0"
+  }
 }
