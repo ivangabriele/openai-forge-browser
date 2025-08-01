@@ -35,7 +35,7 @@
     "@types/vscode": "1.90.0",
     "@types/ws": "8.5.10",
     "@vscode/test-electron": "2.4.0",
-    "@vscode/vsce": "2.29.0",
+    "@vscode/vsce": "3.6.0",
     "d3-color": "3.1.0",
     "execa": "7.2.0",
     "mocha": "10.5.2",
