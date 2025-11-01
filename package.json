@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@ivangabriele/biome-config": "1.5.0",
+    "@ivangabriele/biome-config": "2.0.0",
     "@ivangabriele/semantic-release-config-no-npm": "3.0.3",
     "@ivangabriele/tsconfig-node": "1.2.2",
     "@rollup/plugin-commonjs": "25.0.8",

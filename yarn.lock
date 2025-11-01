@@ -493,12 +493,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ivangabriele/biome-config@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@ivangabriele/biome-config@npm:1.5.0"
+"@ivangabriele/biome-config@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@ivangabriele/biome-config@npm:2.0.0"
   peerDependencies:
-    "@biomejs/biome": ^1
-  checksum: 10/328395f37bc41b37f4a10775d7cb139e08115282556229b4ff2066eab0048214d409c3f51e2c1a68689376bcca286525c46ad9f1aa0a61daf50fa46ef8ad612f
+    "@biomejs/biome": ^2
+  checksum: 10/06b691acfe385c4861e9bca870a0d23b6ec80e82c1832ef3d013366a683e673dca275d5c1c0464625805f63a02a4185eba394c28ab3a84f3abfd44f8ca3a4ef3
   languageName: node
   linkType: hard
 
@@ -7040,7 +7040,7 @@ __metadata:
   resolution: "openai-forge-browser@workspace:."
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
-    "@ivangabriele/biome-config": "npm:1.5.0"
+    "@ivangabriele/biome-config": "npm:2.0.0"
     "@ivangabriele/semantic-release-config-no-npm": "npm:3.0.3"
     "@ivangabriele/tsconfig-node": "npm:1.2.2"
     "@rollup/plugin-commonjs": "npm:25.0.8"
