@@ -48,7 +48,7 @@
     "sharp": "0.33.4",
     "tslib": "2.6.3",
     "typescript": "5.5.2",
-    "ws": "8.17.1"
+    "ws": "8.20.1"
   },
   "packageManager": "yarn@4.9.1",
   "prettier": "@ivangabriele/prettier-config",
